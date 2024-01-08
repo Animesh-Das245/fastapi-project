@@ -1,0 +1,14 @@
+[Unit]
+Description=demo fastapi application
+After=network.target
+
+[Service]
+User=animesh
+Group=animesh
+WorkingDirectory=/home/animesh/app/src/
+Environment="PATH=/home/animesh/app/venv/bin"
+EnvironmentFile=/home/animesh/.env
+ExecStart=/home/animesh/app/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app --bind 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
