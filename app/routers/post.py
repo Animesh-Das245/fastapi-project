@@ -91,7 +91,7 @@ def update_post(id:int ,post: schemas.PostCreate,db: Session = Depends(get_db),c
 
     updated_post = post_query.first()
     
-    if not update_post:
+    if not updated_post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"The id {id} doesn't exist")
     
     if db_post.owner_id != current_user.id:
