@@ -11,11 +11,6 @@ def test_vote(test_posts,session,test_user):
     session.commit()
 
 
-
-
-
-
-
 def test_vote_on_post(authorised_client,test_posts):
     res = authorised_client.post('/vote',json={"post_id":test_posts[3].id,"dir":1})
 
