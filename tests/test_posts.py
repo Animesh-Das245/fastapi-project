@@ -3,7 +3,7 @@ from typing import List
 import pytest
 from app import schemas , models
 
-
+#simple change
 def test_get_all_posts(authorised_client,test_posts):
     res = authorised_client.get("/posts")
 
